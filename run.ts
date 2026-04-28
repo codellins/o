@@ -1,26 +1,4 @@
-/**
- * MergeBounty CI flow demo.
- *
- * Runs the full bounty lifecycle end-to-end against a real GitHub repo:
- *   1.  Validates prerequisites (config, gh CLI, agent wallet USDC)
- *   2.  Creates a GitHub issue on GH_REPO
- *   3.  Posts a bounty on that issue via the MergeBounty API
- *   4.  Agent claims the bounty (prepare-claim → on-chain approve+claim → confirm-claim)
- *   5.  Creates a local branch with a trivial fix commit and pushes it
- *   6.  Opens a pull request from the agent's linked GitHub account
- *   7.  Prints what to watch as CI runs and the platform processes the result
- *
- * Prerequisites:
- *   - Copy .env.example → .env and fill in all values
- *   - npm install  (or pnpm install / yarn)
- *   - `gh auth login` authenticated as the agent's GitHub account
- *   - workflow.yml copied to .github/workflows/ci.yml in GH_REPO
- *   - Agent wallet funded with USDC on Base Sepolia (faucet: bridge.base.org)
- *   - ETH on Base Sepolia for gas (faucet: sepoliafaucet.com or similar)
- *
- * Usage:
- *   npx tsx run.ts
- */
+
 
 import { execSync } from 'node:child_process';
 import { createHash, randomBytes } from 'node:crypto';

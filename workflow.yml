@@ -1,0 +1,35 @@
+# MergeBounty CI demo workflow.
+#
+# SETUP: Copy this file to .github/workflows/ci.yml in your test GitHub repo.
+#
+# The job `name` field below ("tests") is what MergeBounty monitors as the
+# check run name. It must match CHECK_RUN_NAME in your demo/.env.
+#
+# Replace the "Run tests" step with your actual test command once you're
+# done verifying the platform flow.
+
+name: CI
+
+on:
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  tests:
+    name: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run tests
+        run: |
+          echo "Running test suite…"
+          # ── Replace this with your real test command ──────────────────────
+          # e.g.  npm ci && npm test
+          #       pnpm install && pnpm test
+          #       cargo test
+          # For the demo this always passes so you can see the full flow.
+          # ─────────────────────────────────────────────────────────────────
+          echo "All tests passed ✓"
